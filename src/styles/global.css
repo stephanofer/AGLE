@@ -6,7 +6,7 @@
 }
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
   --fs-sm: clamp(0.8rem, -0.09vi + 0.82rem, 0.75rem);
   --fs-base: clamp(1rem, 0vi + 1rem, 1rem);
   --fs-md: clamp(1.2rem, 0.15vi + 1.21rem, 1.33rem);
@@ -14,27 +14,35 @@
   --fs-xl: clamp(1.95rem, 0.76vi + 1.76rem, 2.37rem);
   --fs-xxl: clamp(2.44rem, 1.3vi + 2.12rem, 3.16rem);
   --fs-xxxl: clamp(3.05rem, 2.1vi + 2.53rem, 6.21rem);
+
   --font-system: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   --font-primary: "Clash", var(--font-system);
   --font-secondary: "Inter", var(--font-system);
 
-  --color-primary: #d2b48c;
-  --color-primary-dark: #b19572;
-  --color-primary-light: #e8d7c2;
+  /* === NUEVA PALETA CORPORATIVA === */
 
-  --color-secondary: #c5a27c;
-  --color-secondary-light: #f7f3ee;
+  --color-primary: #08a8ff;
+  /* cyan suave */
+  --color-primary-dark: #006cb4;
+  --color-primary-light: #37cbff;
 
-  --color-text: #1a1a1a;
-  --color-text-light: #555;
-  --color-border: #e5e5e5;
-  --color-bg: #ffffff;
-  --color-bg-muted: #fafafa;
+  --color-secondary: #00345d;
+  /* azul profundo */
+  --color-secondary-light: #002238;
 
-  --success: #4caf50;
-  --danger: #ff5252;
-  --warning: #ffa726;
+  --color-text: #e3edf7;
+  --color-text-light: #a5b4c7;
+
+  --color-border: #1e354c;
+
+  --color-bg: #011322;
+  /* fondo general oscuro */
+  --color-bg-muted: #021b2f;
+
+  --success: #3ddc97;
+  --danger: #ff4d5d;
+  --warning: #ffc857;
 }
 
 @font-face {
@@ -55,13 +63,16 @@
 
 html,
 body {
-  margin: 0;
-  width: 100%;
-  min-height: 100%;
-  font-family: var(--font-secondary);
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+a {
+  color: var(--color-primary-light);
 }
 
 @media (prefers-reduced-motion) {
+
   html,
   body {
     scroll-behavior: auto;
@@ -76,6 +87,7 @@ li {
   list-style-type: none;
   padding: 0;
 }
+
 ul {
   padding-inline-start: 0;
 }

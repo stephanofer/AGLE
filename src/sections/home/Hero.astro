@@ -83,7 +83,7 @@ const heroContent = {
 
   /* === CARRUSEL (IZQUIERDA) === */
   .hero-carousel {
-    flex: 1;
+    flex: 1.4;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -159,7 +159,7 @@ const heroContent = {
 
   /* === CONTENIDO DE TEXTO (DERECHA) === */
   .hero-content {
-    flex: 1;
+    flex: 0.6;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -224,31 +224,29 @@ const heroContent = {
   /* Tablets (iPad) - Layout vertical */
   @media (max-width: 1024px) {
     .hero-container {
-      flex-direction: column;
-      min-height: auto;
-      c
-    }
-
-    .hero-carousel {
-      width: 100%;
-      height: 55vh;
-      min-height: 450px;
-      flex: none;
-    }
-
-    .carousel-wrapper {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      flex-direction: column-reverse; /* TEXTO ARRIBA */
+      min-height: 100vh; /* Mantiene pantalla completa */
     }
 
     .hero-content {
+      flex: 0.3; /* 👈 MISMO ESPACIO PARA AMBOS */
       width: 100%;
+      min-height: auto;
+    }
+
+    .hero-carousel {
+      flex: 1.7; /* 👈 MISMO ESPACIO PARA AMBOS */
+      width: 100%;
+      min-height: auto;
+    }
+
+    .hero-carousel {
+      height: auto; /* Ya no forzamos 55vh */
+    }
+
+    .hero-content {
       padding: 3rem 6%;
       background-color: var(--color-bg);
-      flex: none;
     }
 
     .content-wrapper {
@@ -264,8 +262,6 @@ const heroContent = {
   /* Móviles */
   @media (max-width: 768px) {
     .hero-carousel {
-      height: 50vh;
-      min-height: 380px;
     }
 
     .hero-content {

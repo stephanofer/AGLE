@@ -22,27 +22,40 @@
 
   /* === NUEVA PALETA CORPORATIVA === */
 
-  --color-primary: #08a8ff;
-  /* cyan suave */
-  --color-primary-dark: #006cb4;
-  --color-primary-light: #37cbff;
-
   --color-secondary: #00345d;
   /* azul profundo */
   --color-secondary-light: #002238;
 
   --color-text: #e3edf7;
   --color-text-light: #a5b4c7;
+  --color-text-dark: #64748b;
+  /* Texto secundario */
 
-  --color-border: #1e354c;
 
-  --color-bg: #011322;
   /* fondo general oscuro */
   --color-bg-muted: #021b2f;
 
   --success: #3ddc97;
   --danger: #ff4d5d;
   --warning: #ffc857;
+
+  /* FONDOS */
+  --color-bg: #020617;
+  /* Negro azulado profundo (fondo principal) */
+  --color-bg-soft: #0f172a;
+  /* Azul noche (secciones) */
+  --color-card: #ffffff;
+  /* Tarjetas blancas */
+
+  /* AZULES TECH */
+  --color-primary: #38bdf8;
+  /* Azul tech principal */
+  --color-primary-dark: #0284c7;
+  --color-primary-light: #7dd3fc;
+
+  /* ACENTOS */
+  --color-border: #1e293b;
+  --color-accent: #22d3ee;
 }
 
 @font-face {

@@ -68,22 +68,21 @@ import SectionContainer from "@/components/SectionContainer.astro";
   }
 
   .catalogs-title {
-    font-size: var(--fs-xl);
-    font-family: var(--font-primary);
-    font-weight: 400;
-    text-align: center;
-    margin: 0 0 1.5rem 0;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 500;
+    line-height: 1.1;
     color: var(--color-text);
-    letter-spacing: -0.02em;
+    margin: 0 0 1rem 0;
+    font-family: var(--font-primary);
   }
 
   .catalogs-description {
-    text-align: center;
-    font-size: var(--fs-base);
-    line-height: 1.6;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 300;
     color: var(--color-text-light);
-    margin: 0 auto 3.5rem auto;
-    max-width: 700px;
+    margin: 0;
+    font-family: var(--font-primary);
+    font-style: italic;
   }
 
   .catalogs-description strong {

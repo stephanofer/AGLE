@@ -20,6 +20,7 @@
   --font-primary: "Clash", var(--font-system);
   --font-secondary: "Inter", var(--font-system);
 
+
   /* === NUEVA PALETA CORPORATIVA === */
 
   --color-secondary: #00345d;
@@ -78,6 +79,17 @@ html,
 body {
   background: var(--color-bg);
   color: var(--color-text);
+  font-family: var(--font-secondary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-primary);
+  font-weight: 700;
 }
 
 a {

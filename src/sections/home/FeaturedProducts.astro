@@ -79,10 +79,10 @@ const products = [
           <ProductCard
             id={product.id.toString()}
             name={product.name}
-            description='test'
+            description="test"
             inStock={true}
             image={product.image}
-            images={Object.values({1: product.image})}
+            images={Object.values({ 1: product.image })}
             brand={product.brand}
             category="test-category"
             subcategory="test-subcategory"
@@ -99,13 +99,26 @@ const products = [
   }
 
   h2 {
-    font-size: var(--fs-xl);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 500;
+    line-height: 1.1;
+    color: var(--color-text);
+    margin: 0 0 1rem 0;
     font-family: var(--font-primary);
-    font-weight: 450;
+  }
+
+  p {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 300;
+    color: var(--color-text-light);
+    margin: 0;
+    font-family: var(--font-primary);
+    font-style: italic;
   }
 
   .products-container {
     margin: 0 auto;
+    text-align: center;
   }
 
   .products-grid {

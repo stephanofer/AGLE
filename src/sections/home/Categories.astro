@@ -88,8 +88,7 @@ const categories = [
           stroke="currentColor"
           stroke-width="2"
           stroke-linecap="round"
-          stroke-linejoin="round"
-        />
+          stroke-linejoin="round"></path>
       </svg>
     </a>
   </div>
@@ -117,19 +116,21 @@ const categories = [
   }
 
   .header-title {
-    font-size: clamp(2.2rem, 5vw, 3.5rem);
-    font-weight: 700;
-    color: white;
-    margin-bottom: 1rem;
-    text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 500;
+    line-height: 1.1;
+    color: var(--color-text);
+    margin: 0 0 1rem 0;
+    font-family: var(--font-primary);
   }
 
   .header-description {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.7);
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.6;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 300;
+    color: var(--color-text-light);
+    margin: 0;
+    font-family: var(--font-primary);
+    font-style: italic;
   }
 
   /* === GRID DE CATEGORÍAS === */
@@ -166,7 +167,9 @@ const categories = [
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease, filter 0.3s ease;
+    transition:
+      transform 0.5s ease,
+      filter 0.3s ease;
     filter: brightness(0.85) contrast(1.1);
   }
 
@@ -245,11 +248,11 @@ const categories = [
     gap: 0.8rem;
     padding: 1rem 2.5rem;
     background: linear-gradient(135deg, #0096ff 0%, #00d4ff 100%);
-    color: white;
+    color: black;
     text-decoration: none;
     border-radius: 50px;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.15rem;
     letter-spacing: 0.03em;
     box-shadow: 0 8px 24px rgba(0, 150, 255, 0.3);
     transition: all 0.3s ease;

@@ -10,12 +10,10 @@
   padding: 0.85rem 1.4rem;
 
   border: none;
-  border-radius:8px;
+  border-radius: 8px;
   cursor: pointer;
 
   text-align: center;
-  align-items: center;
-  align-content: center;
   font-size: 1rem;
   letter-spacing: 0.3px;
 
@@ -23,13 +21,13 @@
   box-shadow: 0 4px 12px rgba(37, 211, 102, 0.28);
 }
 
-.whatsapp-btn:hover {
+.whatsapp-btn:not(:disabled):hover {
   background: #1ebe5d;
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(37, 211, 102, 0.38);
 }
 
-.whatsapp-btn:active {
+.whatsapp-btn:not(:disabled):active {
   transform: scale(0.97);
 }
 
@@ -39,6 +37,25 @@
   stroke: white;
 }
 
+.whatsapp-btn:disabled {
+  background: #cfcfcf; /* gris suave */
+  color: #777; /* texto tenue */
+  cursor: not-allowed;
+  box-shadow: none; /* sin sombra */
+  transform: none;
+}
+
+.whatsapp-btn:disabled svg {
+  stroke: #777; /* icono gris */
+  opacity: 0.6; /* sensación apagada */
+}
+
+.whatsapp-btn:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* --- Responsivo --- */
 @media (max-width: 600px) {
   .whatsapp-btn {
     width: 100%;

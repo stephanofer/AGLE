@@ -7,9 +7,9 @@ import SectionContainer from "@/components/SectionContainer.astro";
     <div class="texts">
       <h2 class="catalogs-title">Catálogos electrónicos de Perú Compras</h2>
       <p class="catalogs-description">
-        <strong>Somos proveedores certificados</strong> en los catálogos electrónicos
-        de Perú Compras, garantizando calidad y confiabilidad en nuestros productos
-        y servicios.
+        Somos proveedores certificados en los catálogos electrónicos de Perú
+        Compras, garantizando calidad y confiabilidad en nuestros productos y
+        servicios.
       </p>
     </div>
 
@@ -68,7 +68,7 @@ import SectionContainer from "@/components/SectionContainer.astro";
   }
 
   .catalogs-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
     font-weight: 500;
     line-height: 1.1;
     color: var(--color-text);
@@ -77,17 +77,13 @@ import SectionContainer from "@/components/SectionContainer.astro";
   }
 
   .catalogs-description {
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
-    font-weight: 300;
+    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
     color: var(--color-text-light);
+    line-height: 1.5;
+    opacity: 0.75;
     margin: 0;
     font-family: var(--font-primary);
     font-style: italic;
-  }
-
-  .catalogs-description strong {
-    font-weight: 600;
-    color: var(--color-primary);
   }
 
   .gallery {

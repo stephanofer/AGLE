@@ -4,22 +4,22 @@ import SectionContainer from "@/components/SectionContainer.astro";
 
 <SectionContainer id="why-us" class="mt-4">
   <div class="why-us-wrapper">
-    <!-- Hero simple y directo -->
-    <div class="section-intro">
-      <h2 class="intro-title">¿Por qué elegirnos?</h2>
-      <p class="intro-text">
+    <!-- Header con jerarquía clara -->
+    <div class="section-header">
+      <h2 class="section-title">¿Por qué elegirnos?</h2>
+      <p class="section-description">
         Comprometidos con la calidad, sostenibilidad y tu satisfacción
       </p>
     </div>
 
-    <!-- Grid limpio y equilibrado -->
+    <!-- Grid con cards unificadas -->
     <div class="features-grid">
       <div class="feature-card">
         <div class="card-number">01</div>
         <div class="card-icon">
           <svg
-            width="48"
-            height="48"
+            width="32"
+            height="32"
             viewBox="0 0 48 48"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -40,8 +40,8 @@ import SectionContainer from "@/components/SectionContainer.astro";
         <div class="card-number">02</div>
         <div class="card-icon">
           <svg
-            width="48"
-            height="48"
+            width="32"
+            height="32"
             viewBox="0 0 48 48"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -62,8 +62,8 @@ import SectionContainer from "@/components/SectionContainer.astro";
         <div class="card-number">03</div>
         <div class="card-icon">
           <svg
-            width="48"
-            height="48"
+            width="32"
+            height="32"
             viewBox="0 0 48 48"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -84,8 +84,8 @@ import SectionContainer from "@/components/SectionContainer.astro";
         <div class="card-number">04</div>
         <div class="card-icon">
           <svg
-            width="48"
-            height="48"
+            width="32"
+            height="32"
             viewBox="0 0 48 48"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -109,228 +109,173 @@ import SectionContainer from "@/components/SectionContainer.astro";
   .why-us-wrapper {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 4rem 2rem;
+    padding: var(--space-section) var(--space-lg);
   }
 
-  /* Intro Section */
-  .section-intro {
+  /* Header con jerarquía clara */
+  .section-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: var(--space-xl);
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
   }
 
-  .intro-title {
-    font-size: clamp(2.25rem, 4vw, 3.5rem);
-    font-weight: 500;
-    line-height: 1.1;
+  .section-label {
+    display: inline-block;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-primary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .section-title {
+    font-size: var(--fs-3xl);
+    font-weight: 450;
+    line-height: 1.2;
     color: var(--color-text);
-    margin: 0 0 1rem 0;
+    margin: 0 0 var(--space-sm) 0;
     font-family: var(--font-primary);
   }
 
-  .intro-text {
-    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
-    line-height: 1.5;
-    color: var(--color-text);
-    opacity: 0.75;
-    margin: 0;
+  .section-description {
+    font-size: var(--fs-md);
+    line-height: 1.6;
+    color: var(--color-text-light);
   }
 
-  /* Features Grid - Uniforme y limpio */
+  /* Grid con cards unificadas */
   .features-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: var(--space-md);
   }
 
   .feature-card {
-    background: white;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 16px;
-    padding: 2.5rem;
+    background: var(--color-bg-soft);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    transition: all 0.3s ease;
+    gap: var(--space-md);
+    transition: all var(--transition-base);
     position: relative;
   }
 
   .feature-card:hover {
-    border-color: var(--color-secondary);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-    transform: translateY(-6px);
+    border-color: var(--color-primary);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover), var(--shadow-glow);
   }
 
   /* Card Number */
   .card-number {
     position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    font-size: 3rem;
+    top: var(--space-md);
+    right: var(--space-md);
+    font-size: var(--fs-2xl);
     font-weight: 700;
     color: var(--color-primary);
+    opacity: 0.3;
     line-height: 1;
     font-family: var(--font-primary);
   }
 
   /* Card Icon */
   .card-icon {
-    width: 64px;
-    height: 64px;
-    background: rgba(0, 0, 0, 0.04);
-    border-radius: 12px;
+    width: 56px;
+    height: 56px;
+    background: var(--color-primary-subtle);
+    border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-secondary);
-    transition: all 0.3s ease;
+    color: var(--color-primary);
+    transition: all var(--transition-base);
   }
 
   .feature-card:hover .card-icon {
-    background: var(--color-secondary);
+    background: var(--color-primary);
     color: white;
-    transform: scale(1.05);
   }
 
   /* Card Content */
   .card-title {
-    font-size: clamp(1.25rem, 2vw, 1.5rem);
-    font-weight: 500;
+    font-size: var(--fs-lg);
+    font-weight: 450;
     line-height: 1.3;
-    color: var(--color-secondary);
+    color: var(--color-text);
     margin: 0;
     font-family: var(--font-primary);
   }
 
   .card-description {
-    font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+    font-size: var(--fs-base);
     line-height: 1.7;
-    color: var(--color-secondary);
-    opacity: 0.75;
+    color: var(--color-text-light);
     margin: 0;
   }
 
   /* Responsive */
   @media (max-width: 1024px) {
     .why-us-wrapper {
-      padding: 3.5rem 1.5rem;
-    }
-
-    .section-intro {
-      margin-bottom: 3.5rem;
-    }
-
-    .features-grid {
-      gap: 1.5rem;
+      padding: var(--space-xl) var(--space-md);
     }
 
     .feature-card {
-      padding: 2.25rem;
+      padding: var(--space-lg);
     }
   }
 
   @media (max-width: 768px) {
     .why-us-wrapper {
-      padding: 3rem 1.25rem;
+      padding: var(--space-xl) var(--space-md);
     }
 
-    .section-intro {
-      margin-bottom: 3rem;
-    }
-
-    .intro-title {
-      font-size: 2rem;
-    }
-
-    .intro-text {
-      font-size: 1rem;
+    .section-header {
+      margin-bottom: var(--space-lg);
     }
 
     .features-grid {
       grid-template-columns: 1fr;
-      gap: 1.25rem;
+      gap: var(--space-sm);
     }
 
     .feature-card {
-      padding: 2rem;
+      padding: var(--space-lg);
     }
 
     .card-number {
-      font-size: 2.5rem;
-      top: 1.25rem;
-      right: 1.25rem;
+      font-size: var(--fs-xl);
     }
 
     .card-icon {
-      width: 56px;
-      height: 56px;
+      width: 48px;
+      height: 48px;
     }
 
     .card-icon svg {
-      width: 40px;
-      height: 40px;
-    }
-
-    .card-title {
-      font-size: 1.2rem;
-    }
-
-    .card-description {
-      font-size: 0.95rem;
-      line-height: 1.6;
+      width: 24px;
+      height: 24px;
     }
   }
 
   @media (max-width: 480px) {
     .why-us-wrapper {
-      padding: 2.5rem 1rem;
-    }
-
-    .section-intro {
-      margin-bottom: 2.5rem;
-    }
-
-    .intro-title {
-      font-size: 1.75rem;
-    }
-
-    .intro-text {
-      font-size: 0.95rem;
-    }
-
-    .features-grid {
-      gap: 1rem;
+      padding: var(--space-lg) var(--space-sm);
     }
 
     .feature-card {
-      padding: 1.75rem;
-      gap: 1.25rem;
-    }
-
-    .card-number {
-      font-size: 2.25rem;
-      top: 1rem;
-      right: 1rem;
+      padding: var(--space-md);
+      gap: var(--space-sm);
     }
 
     .card-icon {
-      width: 52px;
-      height: 52px;
-    }
-
-    .card-icon svg {
-      width: 36px;
-      height: 36px;
-    }
-
-    .card-title {
-      font-size: 1.1rem;
-    }
-
-    .card-description {
-      font-size: 0.9rem;
+      width: 44px;
+      height: 44px;
     }
   }
 </style>

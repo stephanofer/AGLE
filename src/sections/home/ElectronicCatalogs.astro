@@ -4,9 +4,9 @@ import SectionContainer from "@/components/SectionContainer.astro";
 
 <SectionContainer id="electronic-catalogs" class="mt-4">
   <div class="catalogs-container">
-    <div class="texts">
-      <h2 class="catalogs-title">Catálogos electrónicos de Perú Compras</h2>
-      <p class="catalogs-description">
+    <div class="section-header">
+      <h2 class="section-title">Catálogos electrónicos de Perú Compras</h2>
+      <p class="section-description">
         Somos proveedores certificados en los catálogos electrónicos de Perú
         Compras, garantizando calidad y confiabilidad en nuestros productos y
         servicios.
@@ -22,8 +22,8 @@ import SectionContainer from "@/components/SectionContainer.astro";
             alt="Habitación infantil con muebles LUFE"
             loading="lazy"
           />
-          <div class="catalog-title">
-            <p>
+          <div class="catalog-overlay">
+            <p class="catalog-title">
               Máquinas, equipo y herramientas para jardinería, silvicultura y
               agricultura
             </p>
@@ -39,8 +39,10 @@ import SectionContainer from "@/components/SectionContainer.astro";
             alt="Habitación con escritorio y estanterías LUFE"
             loading="lazy"
           />
-          <div class="catalog-title">
-            <p>Mobiliario y equipamiento educativo institucional</p>
+          <div class="catalog-overlay">
+            <p class="catalog-title">
+              Mobiliario y equipamiento educativo institucional
+            </p>
           </div>
         </div>
       </div>
@@ -53,8 +55,8 @@ import SectionContainer from "@/components/SectionContainer.astro";
             alt="Dormitorio infantil con escritorio verde"
             loading="lazy"
           />
-          <div class="catalog-title">
-            <p>Equipos y accesorios de oficina</p>
+          <div class="catalog-overlay">
+            <p class="catalog-title">Equipos y accesorios de oficina</p>
           </div>
         </div>
       </div>
@@ -63,47 +65,47 @@ import SectionContainer from "@/components/SectionContainer.astro";
 </SectionContainer>
 
 <style>
-  .texts {
-    margin-bottom: 3rem;
+  .catalogs-container {
+    padding-bottom: 3rem;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .catalogs-title {
-    font-size: clamp(2.25rem, 4vw, 3.5rem);
-    font-weight: 500;
-    line-height: 1.1;
+  .section-label {
+    display: inline-block;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-primary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .section-title {
+    font-size: var(--fs-3xl);
+    font-weight: 450;
+    line-height: 1.2;
     color: var(--color-text);
-    margin: 0 0 1rem 0;
+    margin: 0 0 var(--space-sm) 0;
     font-family: var(--font-primary);
   }
 
-  .catalogs-description {
-    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  .section-description {
+    font-size: var(--fs-md);
     color: var(--color-text-light);
-    line-height: 1.5;
-    opacity: 0.75;
-    margin: 0;
-    font-family: var(--font-primary);
-    font-style: italic;
+    line-height: 1.6;
+    max-width: 100ch;
   }
 
   .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-  }
-
-  @media (min-width: 768px) {
-    .gallery {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .gallery {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
   }
 
   .gallery-item {
@@ -115,15 +117,17 @@ import SectionContainer from "@/components/SectionContainer.astro";
     position: relative;
     aspect-ratio: 4 / 5;
     overflow: hidden;
-    border-radius: 12px;
-    background-color: #f5f5f5;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    transition: box-shadow 0.3s ease;
+    border-radius: var(--radius-lg);
+    background: var(--color-bg-soft);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-base);
     cursor: pointer;
   }
 
   .gallery-item:hover .image-wrapper {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-card-hover), var(--shadow-glow);
+    transform: translateY(-4px);
   }
 
   .image-wrapper img {
@@ -131,60 +135,90 @@ import SectionContainer from "@/components/SectionContainer.astro";
     height: 100%;
     object-fit: cover;
     display: block;
-    transition:
-      transform 0.4s ease,
-      filter 0.3s ease;
+    transition: transform var(--transition-slow);
   }
 
   .gallery-item:hover .image-wrapper img {
-    transform: scale(1.03);
-    filter: brightness(1.05);
+    transform: scale(1.05);
   }
 
   .badge {
     position: absolute;
-    top: 12px;
-    left: 12px;
-    background: linear-gradient(135deg, #13036e 0%, #153899 100%);
+    top: var(--space-sm);
+    left: var(--space-sm);
+    background: var(--color-primary);
     color: white;
-    font-size: 0.75rem;
+    font-size: var(--fs-xs);
     font-weight: 600;
     padding: 0.375rem 0.75rem;
-    border-radius: 6px;
+    border-radius: var(--radius-sm);
     z-index: 2;
-    letter-spacing: 0.025em;
-    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
-    backdrop-filter: blur(8px);
+    letter-spacing: 0.02em;
   }
 
-  .catalog-title {
+  .catalog-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     background: linear-gradient(
       to top,
-      rgba(0, 0, 0, 0.8) 0%,
-      rgba(0, 0, 0, 0.6) 70%,
+      rgba(3, 7, 18, 0.9) 0%,
+      rgba(3, 7, 18, 0.6) 60%,
       transparent 100%
     );
-    padding: 2.5rem 1rem 1rem 1rem;
+    padding: var(--space-xl) var(--space-md) var(--space-md);
     z-index: 1;
   }
 
-  .catalog-title p {
-    color: white;
+  .catalog-title {
+    color: var(--color-text);
     font-family: var(--font-primary);
-    font-size: 0.875rem;
-    line-height: 1.4;
+    font-size: var(--fs-sm);
+    line-height: 1.5;
     margin: 0;
-    font-weight: 450;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    font-weight: 500;
   }
 
-  @media (min-width: 768px) {
-    .catalog-title p {
-      font-size: 0.9375rem;
+  @media (max-width: 1024px) {
+    .gallery {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-sm);
+    }
+
+    .gallery-item:last-child {
+      grid-column: span 2;
+    }
+
+    .gallery-item:last-child .image-wrapper {
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-header {
+      margin-bottom: var(--space-lg);
+    }
+
+    .gallery {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    .gallery-item:last-child {
+      grid-column: span 1;
+    }
+
+    .gallery-item .image-wrapper,
+    .gallery-item:last-child .image-wrapper {
+      aspect-ratio: 4 / 3;
+      min-height: 280px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .catalog-overlay {
+      padding: var(--space-lg) var(--space-sm) var(--space-sm);
     }
   }
 </style>

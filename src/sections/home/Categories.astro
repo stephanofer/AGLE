@@ -20,12 +20,6 @@ const categories = [
       "https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=800&q=80",
     link: "/categorias/comedor",
   },
-  {
-    name: "Exterior",
-    image:
-      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80",
-    link: "/categorias/exterior",
-  },
 ];
 ---
 
@@ -49,16 +43,17 @@ const categories = [
       {
         categories.map((category) => (
           <a href={category.link} class="category-card">
-            <div class="card-image">
+            <div class="category-image-wrapper">
               <img
                 src={category.image}
                 alt={category.name}
+                class="category-image"
                 loading="lazy"
               />
-            </div>
-            <div class="card-content">
-              <h3 class="card-title">{category.name}</h3>
-              <span class="card-link">Ver productos →</span>
+              <div class="category-overlay">
+                <h3 class="category-title">{category.name}</h3>
+                <p class="category-subtitle">Ver productos</p>
+              </div>
             </div>
           </a>
         ))
@@ -106,7 +101,7 @@ const categories = [
   }
 
   .header-title {
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: var(--fs-xl);
     font-weight: 400;
     line-height: 1.2;
     color: var(--color-text);
@@ -129,52 +124,87 @@ const categories = [
   /* Grid */
   .categories-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
     margin-bottom: 3rem;
   }
 
   /* Cards */
   .category-card {
+    position: relative;
     display: block;
     text-decoration: none;
-    background: white;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .category-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .category-image-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
     overflow: hidden;
   }
 
-  .card-image {
-    aspect-ratio: 4 / 5;
-    overflow: hidden;
-    background: #f5f5f5;
-  }
-
-  .card-image img {
+  .category-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
+    transition: transform 0.5s ease-out;
   }
 
-  .card-content {
-    padding: 1.25rem;
+  .category-card:hover .category-image {
+    transform: scale(1.1);
+  }
+
+  .category-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 2rem 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.4) 50%,
+      rgba(0, 0, 0, 0.1) 100%
+    );
+    color: white;
+    z-index: 2;
+    pointer-events: none;
   }
 
-  .card-title {
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: var(--color-secondary);
-    margin: 0;
+  .category-title {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
     font-family: var(--font-primary);
+    font-weight: 500;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: 0.02em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   }
 
-  .card-link {
-    font-size: 0.9rem;
-    color: var(--color-secondary-light);
+  .category-subtitle {
+    font-size: clamp(0.9rem, 1.2vw, 1rem);
+    margin: 0;
+    opacity: 0.95;
+    font-weight: 400;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid #fff;
+    padding-bottom: 0.25rem;
   }
 
   /* Footer */
@@ -185,14 +215,26 @@ const categories = [
   }
 
   .view-all-link {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     font-size: 1rem;
     font-weight: 500;
     color: var(--color-text);
     text-decoration: none;
-    padding: 0.75rem 2rem;
-    border: 2px solid var(--color-text);
-    border-radius: 4px;
+    padding: 0.875rem 2rem;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-full);
+    transition: all var(--transition-base);
+    background: transparent;
+  }
+
+  .view-all-link:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    background: var(--color-primary-subtle);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
   }
 
   /* Responsive */
@@ -213,7 +255,7 @@ const categories = [
 
     .categories-grid {
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
+      gap: 1.5rem;
     }
   }
 
@@ -240,16 +282,8 @@ const categories = [
       margin-bottom: 2.5rem;
     }
 
-    .card-content {
-      padding: 1rem;
-    }
-
-    .card-title {
-      font-size: 1.15rem;
-    }
-
-    .card-link {
-      font-size: 0.85rem;
+    .category-overlay {
+      padding: 1.5rem 1rem;
     }
 
     .footer-section {
@@ -295,12 +329,8 @@ const categories = [
       margin-bottom: 2rem;
     }
 
-    .card-content {
-      padding: 0.875rem;
-    }
-
-    .card-title {
-      font-size: 1.1rem;
+    .category-overlay {
+      padding: 1.25rem 0.875rem;
     }
 
     .view-all-link {

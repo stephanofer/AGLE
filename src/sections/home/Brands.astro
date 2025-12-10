@@ -4,15 +4,16 @@ import SectionContainer from "@/components/SectionContainer.astro";
 
 <SectionContainer id="brands" class="mt-4">
   <div class="brands-wrapper">
-    <!-- Header compacto -->
+    <!-- Header con mejor jerarquía -->
     <div class="brands-header">
+      <span class="brands-label">Nuestros Socios</span>
       <h2 class="brands-title">Marcas con las que trabajamos</h2>
       <p class="brands-description">
-        Productos de calidad respaldados por marcas líderes
+        Productos de calidad respaldados por marcas líderes en el mercado
       </p>
     </div>
 
-    <!-- Grid compacto de marcas -->
+    <!-- Grid de marcas con diseño mejorado -->
     <div class="brands-grid">
       <div class="brand-item">
         <img src="/favicon.svg" alt="Redragon" class="brand-logo" />
@@ -61,90 +62,95 @@ import SectionContainer from "@/components/SectionContainer.astro";
   .brands-wrapper {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 3rem 2rem;
+    padding: var(--space-section) var(--space-lg);
   }
 
-  /* Header compacto y centrado */
+  /* Header mejorado con jerarquía clara */
   .brands-header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: var(--space-xl);
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
   }
 
+  .brands-label {
+    display: inline-block;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-primary);
+    margin-bottom: var(--space-sm);
+  }
+
   .brands-title {
-    font-size: clamp(1.75rem, 3vw, 2.25rem);
-    font-weight: 500;
+    font-size: var(--fs-3xl);
+    font-weight: 450;
     line-height: 1.2;
     color: var(--color-text);
-    margin: 0 0 0.75rem 0;
+    margin: 0 0 var(--space-sm) 0;
     font-family: var(--font-primary);
   }
 
   .brands-description {
-    font-size: clamp(0.95rem, 1.5vw, 1.05rem);
-    line-height: 1.5;
-    color: var(--color-text);
-    opacity: 0.7;
+    font-size: var(--fs-md);
+    line-height: 1.6;
+    color: var(--color-text-light);
     margin: 0;
   }
 
-  /* Grid compacto */
+  /* Grid con cards oscuras para coherencia */
   .brands-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 1.25rem;
+    gap: var(--space-md);
   }
 
   .brand-item {
-    background: white;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 12px;
-    padding: 1.75rem 1.25rem;
+    background: var(--color-bg-soft);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg) var(--space-md);
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100px;
-    transition: all 0.3s ease;
+    transition: all var(--transition-base);
   }
 
   .brand-item:hover {
-    border-color: var(--color-secondary);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-    transform: translateY(-2px);
+    border-color: var(--color-primary);
+    background: var(--color-bg-muted);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow);
   }
 
   .brand-logo {
-    max-width: 100px;
-    max-height: 50px;
+    max-width: 90px;
+    max-height: 45px;
     width: 100%;
     height: auto;
     object-fit: contain;
-    filter: grayscale(100%);
-    opacity: 0.5;
-    transition: all 0.3s ease;
+    filter: grayscale(100%) brightness(0.6);
+    opacity: 0.6;
+    transition: all var(--transition-base);
   }
 
   .brand-item:hover .brand-logo {
-    filter: grayscale(0%);
+    filter: grayscale(0%) brightness(1);
     opacity: 1;
-    transform: scale(1.05);
   }
 
   /* Responsive */
   @media (max-width: 1024px) {
     .brands-wrapper {
-      padding: 2.5rem 1.5rem;
-    }
-
-    .brands-header {
-      margin-bottom: 2.5rem;
+      padding: var(--space-xl) var(--space-md);
     }
 
     .brands-grid {
       grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
+      gap: var(--space-sm);
     }
 
     .brand-item:nth-child(n + 9) {
@@ -154,29 +160,21 @@ import SectionContainer from "@/components/SectionContainer.astro";
 
   @media (max-width: 768px) {
     .brands-wrapper {
-      padding: 2rem 1.25rem;
+      padding: var(--space-xl) var(--space-md);
     }
 
     .brands-header {
-      margin-bottom: 2rem;
-    }
-
-    .brands-title {
-      font-size: 1.75rem;
-    }
-
-    .brands-description {
-      font-size: 0.9rem;
+      margin-bottom: var(--space-lg);
     }
 
     .brands-grid {
       grid-template-columns: repeat(3, 1fr);
-      gap: 0.875rem;
+      gap: var(--space-sm);
     }
 
     .brand-item {
-      padding: 1.5rem 1rem;
-      min-height: 90px;
+      padding: var(--space-md) var(--space-sm);
+      min-height: 85px;
     }
 
     .brand-item:nth-child(n + 7) {
@@ -184,41 +182,33 @@ import SectionContainer from "@/components/SectionContainer.astro";
     }
 
     .brand-logo {
-      max-width: 85px;
-      max-height: 42px;
+      max-width: 80px;
+      max-height: 40px;
     }
   }
 
   @media (max-width: 480px) {
     .brands-wrapper {
-      padding: 1.75rem 1rem;
+      padding: var(--space-lg) var(--space-sm);
     }
 
     .brands-header {
-      margin-bottom: 1.75rem;
-    }
-
-    .brands-title {
-      font-size: 1.5rem;
-    }
-
-    .brands-description {
-      font-size: 0.85rem;
+      margin-bottom: var(--space-md);
     }
 
     .brands-grid {
       grid-template-columns: repeat(2, 1fr);
-      gap: 0.75rem;
+      gap: var(--space-xs);
     }
 
     .brand-item {
-      padding: 1.25rem 0.875rem;
-      min-height: 80px;
+      padding: var(--space-sm);
+      min-height: 75px;
     }
 
     .brand-logo {
-      max-width: 75px;
-      max-height: 38px;
+      max-width: 70px;
+      max-height: 35px;
     }
   }
 </style>

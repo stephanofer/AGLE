@@ -2,22 +2,24 @@
 import SectionContainer from "@/components/SectionContainer.astro";
 ---
 
-<section class="lufe-section">
-  <div class="lufe-intro">
+<section class="arm-section">
+  <div class="arm-intro">
+    <span class="intro-label">Sobre Nosotros</span>
     <p class="intro-text">
-      En ARM diseñamos y fabricamos muebles con el objetivo de mejorar nuestra
+      En AGLE diseñamos y fabricamos muebles con el objetivo de mejorar nuestra
       <span class="highlight">NATURALEZA</span> y nuestro <span
         class="highlight">ENTORNO</span
       >.
     </p>
   </div>
 
-  <div class="lufe-grid">
+  <div class="arm-grid">
     <div class="grid-item item-1">
       <div class="image-container">
         <img
           src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=1000&fit=crop"
           alt="Edificio LUFE - Fabricación local"
+          loading="lazy"
         />
       </div>
     </div>
@@ -53,6 +55,7 @@ import SectionContainer from "@/components/SectionContainer.astro";
         <img
           src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop"
           alt="Diseño universal - Planificación"
+          loading="lazy"
         />
       </div>
     </div>
@@ -62,6 +65,7 @@ import SectionContainer from "@/components/SectionContainer.astro";
         <img
           src="https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=800&h=800&fit=crop"
           alt="Funcionalidad - Muebles prácticos"
+          loading="lazy"
         />
       </div>
     </div>
@@ -81,146 +85,143 @@ import SectionContainer from "@/components/SectionContainer.astro";
 </section>
 
 <style>
-  .lufe-section {
+  .arm-section {
     max-width: 1200px;
-    margin: 4rem auto;
-    padding: 0 1rem;
+    margin: 0 auto;
+    padding: var(--space-section) var(--space-lg);
   }
 
-  .lufe-intro {
+  .arm-intro {
     text-align: center;
-    margin-bottom: 5rem;
+    margin-bottom: var(--space-2xl);
     max-width: 900px;
     margin-inline: auto;
   }
 
+  .intro-label {
+    display: inline-block;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+  }
+
   .intro-text {
-    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-size: var(--fs-lg);
     line-height: 1.8;
-    color: var(--color-text);
+    color: var(--color-text-light);
+    margin: 0;
   }
 
   .highlight {
-    font-weight: 800;
+    font-weight: 700;
     color: var(--color-primary);
     position: relative;
   }
 
-  .highlight::after {
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, var(--color-primary), transparent);
-  }
-
   /* === GRID === */
-  .lufe-grid {
+  .arm-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
+    gap: var(--space-lg);
   }
 
   /* === IMÁGENES === */
   .image-container {
     width: 100%;
     overflow: hidden;
-    border-radius: 1.25rem;
+    border-radius: var(--radius-lg);
     aspect-ratio: 4 / 5;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--color-border);
   }
 
   .image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.8s ease;
+    transition: transform var(--transition-slow);
   }
 
   .image-container:hover img {
-    transform: scale(1.08);
+    transform: scale(1.03);
   }
 
   /* === BLOQUES DE TEXTO === */
   .content-block {
-    padding: 3rem;
-    background: linear-gradient(145deg, #ffffff, #f2f2f2);
-    border-radius: 1.5rem;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+    padding: var(--space-xl);
+    background: var(--color-bg-soft);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100%;
     position: relative;
     overflow: hidden;
+    transition: all var(--transition-base);
   }
 
-  .content-block::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(
-      circle at top right,
-      rgba(30, 200, 255, 0.12),
-      transparent 70%
-    );
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-
-  .content-block:hover::before {
-    opacity: 1;
+  .content-block:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-glow);
   }
 
   .letter {
-    font-size: clamp(5rem, 10vw, 8rem);
-    font-weight: 800;
+    font-size: clamp(4rem, 8vw, 6rem);
+    font-weight: 700;
     line-height: 0.9;
-    margin: 0 0 0.8rem 0;
-    color: var(--color-primary-dark);
-    opacity: 0.45;
+    margin: 0 0 var(--space-sm) 0;
+    color: var(--color-primary);
+    opacity: 0.4;
+    font-family: var(--font-primary);
   }
 
   .label {
-    font-size: 1.1rem;
+    font-size: var(--fs-sm);
     font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--color-text-dark);
+    margin-bottom: var(--space-sm);
+    color: var(--color-text-light);
     text-transform: uppercase;
     letter-spacing: 0.15em;
   }
 
   .description {
-    font-size: 1rem;
+    font-size: var(--fs-base);
     line-height: 1.8;
-    color: var(--color-text-dark);
+    color: var(--color-text-light);
     max-width: 520px;
+    margin: 0;
   }
 
   /* === RESPONSIVE === */
   @media (max-width: 968px) {
-    .lufe-grid {
-      gap: 2rem;
+    .arm-section {
+      padding: var(--space-xl) var(--space-md);
+    }
+
+    .arm-grid {
+      gap: var(--space-md);
     }
 
     .content-block {
-      padding: 2rem;
-    }
-
-    .letter {
-      font-size: clamp(4rem, 12vw, 6rem);
+      padding: var(--space-lg);
     }
   }
 
   @media (max-width: 640px) {
-    .lufe-grid {
+    .arm-section {
+      padding: var(--space-xl) var(--space-sm);
+    }
+
+    .arm-grid {
       grid-template-columns: 1fr;
+      gap: var(--space-sm);
     }
 
     .content-block {
-      padding: 1.8rem 1.5rem;
+      padding: var(--space-lg);
       text-align: center;
     }
 
@@ -228,8 +229,8 @@ import SectionContainer from "@/components/SectionContainer.astro";
       margin-inline: auto;
     }
 
-    .letter {
-      margin-bottom: 0.5rem;
+    .image-container {
+      aspect-ratio: 16 / 10;
     }
   }
 </style>

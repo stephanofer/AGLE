@@ -5,13 +5,14 @@
 .title {
   font-size: var(--fs-xxl);
   font-family: var(--font-primary);
+  color: var(--color-primary);
   font-weight: 450;
 }
 
 .mobileResultsCount {
   display: none;
   font-size: 0.9375rem;
-  color: #6b7280;
+  color: white;
   margin: -0.5rem 0 1rem 0;
 }
 

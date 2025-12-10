@@ -14,13 +14,13 @@
 .title {
   font-size: 1.75rem;
   font-weight: 600;
-  color: #1a1a1a;
+  color: white;
   margin: 0 0 1rem 0;
 }
 
 .message {
   font-size: 1rem;
-  color: #666;
+  color: #f1f1f1;
   line-height: 1.6;
   margin: 0 0 2rem 0;
 }
